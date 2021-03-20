@@ -8,13 +8,13 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const FormTodo = (props) => {
+const FormTodo = (props: any) => {
     const [description, setDescription] = useState('');
     const { handleAddItem } = props;
 
     const classes = useStyles();
 
-    const handleSubmit = e => {
+    const handleSubmit = (e: any) => {
         e.preventDefault();
         handleAddItem({
             done: false,

@@ -14,17 +14,23 @@ import TodoPage from './todo/TodoPage';
 
 export const mainListItems = (
   <div>
-    <ListItem button component={React.forwardRef((props, innerRef) => (<Link {...props} to="/" ref={innerRef}></Link>))} >
+    <ListItem button component={React.forwardRef((props: any, innerRef) => (<Link {...props} to="/" ref={innerRef}></Link>))} >
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
       <ListItemText primary="Dashboard" />
     </ListItem>
-    <ListItem button component={React.forwardRef((props, innerRef) => (<Link {...props} to="/todo" ref={innerRef} ></Link>))}>
+    <ListItem button component={React.forwardRef((props: any, innerRef) => (<Link {...props} to="/todo" ref={innerRef} ></Link>))}>
       <ListItemIcon>
         <ShoppingCartIcon />
       </ListItemIcon>
       <ListItemText primary="Todo" />
+    </ListItem>
+    <ListItem button component={React.forwardRef((props: any, innerRef) => (<Link {...props} to="/tic-tac-toe" ref={innerRef} ></Link>))}>
+      <ListItemIcon>
+        <ShoppingCartIcon />
+      </ListItemIcon>
+      <ListItemText primary="Tic tac toe" />
     </ListItem>
     {/* <ListItem button>
       <ListItemIcon>

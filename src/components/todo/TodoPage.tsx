@@ -6,11 +6,11 @@ import FormTodo from "./FormTodo";
 import TaskList from "./TaskList";
 
 
-export default function TodoPage(props) {
+export default function TodoPage(props: any) {
 
-    const [list, setList] = useState([]);
+    const [list, setList] = useState<any[]>([]);
     
-    const handleAddItem = addItem => {
+    const handleAddItem = (addItem: any) => {
         setList([...list, addItem]);
     };
     

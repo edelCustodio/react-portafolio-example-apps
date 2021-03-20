@@ -1,13 +1,13 @@
 import React from "react";
 import { Checkbox, FormControlLabel, Button } from "@material-ui/core";
 
-const TaskList = (props) => {
+const TaskList = (props: any) => {
 
     const { list, setList } = props;
 
-    const onChangeStatus = e => {
+    const onChangeStatus = (e: any) => {
         const { name, checked } = e.target;
-        const updateList = list.map(item => ({
+        const updateList = list.map((item: any) => ({
           ...item,
           done: item.id === name ? checked : item.done
         }));
@@ -15,11 +15,12 @@ const TaskList = (props) => {
         setList(updateList);
     };
 
-    const chk = list.map(item => (
+    const chk = list.map((item: any) => (
         <li>
             <FormControlLabel
                 key={item.id}
                 label={item.description}
+                // @ts-expect-error
                 control={<Checkbox name={item.id} onChange={onChangeStatus}> {item} </Checkbox>}
             />
         </li>
@@ -27,7 +28,7 @@ const TaskList = (props) => {
     ));
 
     const onClickRemoveItem = () => {
-        const updateList = list.filter(item => !item.done);
+        const updateList = list.filter((item: any) => !item.done);
         setList(updateList);
     };
 

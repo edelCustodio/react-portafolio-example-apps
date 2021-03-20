@@ -21,6 +21,8 @@ import { theme } from '../Theme';
 import TodoPage from './todo/TodoPage';
 import { Route, Switch } from 'react-router-dom';
 import Dashboard from './dashboard/dashboard';
+import TickTacToe from './ticTacToe/TickTacToe';
+import Game from './ticTacToe/Game';
 
 function Copyright() {
   return (
@@ -180,6 +182,7 @@ export default function AppContainer() {
                             <Switch>
                                 <Route exact path="/" component={Dashboard}></Route>
                                 <Route path="/todo" render={(props) => <TodoPage fixedHeightPaper={fixedHeightPaper} ></TodoPage> } ></Route>
+                                <Route path="/tic-tac-toe" component={Game} ></Route>
                             </Switch>
                         
                         <Box pt={4}>
