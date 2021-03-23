@@ -23,6 +23,7 @@ import { Route, Switch } from 'react-router-dom';
 import Dashboard from './dashboard/dashboard';
 import TickTacToe from './ticTacToe/TickTacToe';
 import Game from './ticTacToe/Game';
+import Books from './books/Books';
 
 function Copyright() {
   return (
@@ -183,6 +184,7 @@ export default function AppContainer() {
                                 <Route exact path="/" component={Dashboard}></Route>
                                 <Route path="/todo" render={(props) => <TodoPage fixedHeightPaper={fixedHeightPaper} ></TodoPage> } ></Route>
                                 <Route path="/tic-tac-toe" component={Game} ></Route>
+                                <Route path="/books" component={Books} ></Route>
                             </Switch>
                         
                         <Box pt={4}>

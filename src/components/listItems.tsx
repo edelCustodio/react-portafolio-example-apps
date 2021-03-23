@@ -32,6 +32,12 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Tic tac toe" />
     </ListItem>
+    <ListItem button component={React.forwardRef((props: any, innerRef) => (<Link {...props} to="/books" ref={innerRef} ></Link>))}>
+      <ListItemIcon>
+        <ShoppingCartIcon />
+      </ListItemIcon>
+      <ListItemText primary="Books" />
+    </ListItem>
     {/* <ListItem button>
       <ListItemIcon>
         <PeopleIcon />
