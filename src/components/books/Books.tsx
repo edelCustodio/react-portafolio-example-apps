@@ -8,6 +8,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -59,47 +60,49 @@ const Books = () => {
     const classes = useStyles();
 
     return (
-        <Grid container spacing={10}>
-            <Grid item xs={12} md={4} lg={12}>
-                <Paper>
-                    <TextField
-                        label="Search"
-                        type="text"
-                        className="text"
-                        value={query}
-                        onChange={handleSearch}
-                        fullWidth
-                    />
-                    <TableContainer component={Paper}>
-                        <Table className={classes.table} aria-label="simple table">
-                            <TableHead>
-                            <TableRow>
-                                <TableCell>Title</TableCell>
-                            </TableRow>
-                            </TableHead>
-                            <TableBody>
-                            {books.map((book: any, index: number) => {
-                                if (books.length === index + 1) {
-                                    return <TableRow key={book} ref={lastBookElementRef}>
-                                                <TableCell component="th" scope="row">
-                                                    {book}
-                                                </TableCell>
-                                            </TableRow>
-                                } else {
-                                    return <TableRow key={book}>
-                                                <TableCell component="th" scope="row">
-                                                    {book}
-                                                </TableCell>
-                                            </TableRow>
-                                }
-                                
-                            })}
-                            </TableBody>
-                        </Table>
-                    </TableContainer>
-                </Paper>
+        <>
+            <Grid container spacing={10}>
+                <Grid item xs={12} md={4} lg={12}>
+                    <Paper>
+                        <TextField
+                            label="Search"
+                            type="text"
+                            className="text"
+                            value={query}
+                            onChange={handleSearch}
+                            fullWidth
+                        />
+                        <TableContainer component={Paper}>
+                            <Table className={classes.table} aria-label="simple table">
+                                <TableHead>
+                                <TableRow>
+                                    <TableCell>Title</TableCell>
+                                </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                {books.map((book: any, index: number) => {
+                                    if (books.length === index + 1) {
+                                        return <TableRow key={book} ref={lastBookElementRef}>
+                                                    <TableCell component="th" scope="row">
+                                                        {book}
+                                                    </TableCell>
+                                                </TableRow>
+                                    } else {
+                                        return <TableRow key={book}>
+                                                    <TableCell component="th" scope="row">
+                                                        {book}
+                                                    </TableCell>
+                                                </TableRow>
+                                    }
+                                    
+                                })}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
+                    </Paper>
+                </Grid>
             </Grid>
-        </Grid>
+        </>
     );
 }
 

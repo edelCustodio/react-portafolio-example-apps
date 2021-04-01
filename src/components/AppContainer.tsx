@@ -21,9 +21,9 @@ import { theme } from '../Theme';
 import TodoPage from './todo/TodoPage';
 import { Route, Switch } from 'react-router-dom';
 import Dashboard from './dashboard/dashboard';
-import TickTacToe from './ticTacToe/TickTacToe';
 import Game from './ticTacToe/Game';
 import Books from './books/Books';
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 function Copyright() {
   return (
@@ -135,64 +135,70 @@ export default function AppContainer() {
     
 
     return (
-        <ThemeProvider theme={theme}>
-            <div className={classes.root}>
-                <CssBaseline />
-                <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
-                    <Toolbar className={classes.toolbar}>
-                    <IconButton
-                        edge="start"
-                        color="inherit"
-                        aria-label="open drawer"
-                        onClick={handleDrawerOpen}
-                        className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
-                    >
+        <>
+            <ThemeProvider theme={theme}>
+                
+                <div className={classes.root}>
+                    <CssBaseline />
+                    <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
+                        <Toolbar className={classes.toolbar}>
+                        <IconButton
+                            edge="start"
+                            color="inherit"
+                            aria-label="open drawer"
+                            onClick={handleDrawerOpen}
+                            className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
+                        >
                         <MenuIcon />
-                    </IconButton>
-                    <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-                        Dashboard
-                    </Typography>
-                    <IconButton color="inherit">
-                        <Badge badgeContent={4} color="secondary">
-                        <NotificationsIcon />
-                        </Badge>
-                    </IconButton>
-                    </Toolbar>
-                </AppBar>
-                <Drawer
-                    variant="permanent"
-                    classes={{
-                    paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
-                    }}
-                    open={open}
-                >
-                    <div className={classes.toolbarIcon}>
-                    <IconButton onClick={handleDrawerClose}>
-                        <ChevronLeftIcon />
-                    </IconButton>
-                    </div>
-                    <Divider />
-                    <List>{mainListItems}</List>
-                    <Divider />
-                    <List>{secondaryListItems}</List>
-                </Drawer>
-                <main className={classes.content}>
-                    <div className={classes.appBarSpacer} />
-                    <Container maxWidth="lg" className={classes.container}>
+                        </IconButton>
+                        <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
+                            Dashboard
+                        </Typography>
+                        <IconButton color="inherit">
+                            <Badge badgeContent={4} color="secondary">
+                            <NotificationsIcon />
+                            </Badge>
+                        </IconButton>
+                        </Toolbar>
+                    </AppBar>
+                    
+                    <Drawer
+                        variant="permanent"
+                        classes={{
+                        paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
+                        }}
+                        open={open}
+                    >
+                        <div className={classes.toolbarIcon}>
+                        <IconButton onClick={handleDrawerClose}>
+                            <ChevronLeftIcon />
+                        </IconButton>
+                        </div>
+                        <Divider />
+                        <List>{mainListItems}</List>
+                        <Divider />
+                        <List>{secondaryListItems}</List>
+                    </Drawer>
+                    <main className={classes.content}>
                         
-                            <Switch>
-                                <Route exact path="/" component={Dashboard}></Route>
-                                <Route path="/todo" render={(props) => <TodoPage fixedHeightPaper={fixedHeightPaper} ></TodoPage> } ></Route>
-                                <Route path="/tic-tac-toe" component={Game} ></Route>
-                                <Route path="/books" component={Books} ></Route>
-                            </Switch>
-                        
-                        <Box pt={4}>
-                            <Copyright />
-                        </Box>
-                    </Container>
-                </main>
-            </div>
-        </ThemeProvider>
+                        <div className={classes.appBarSpacer} />
+                        <LinearProgress />
+                        <Container maxWidth="lg" className={classes.container}>
+                            
+                                <Switch>
+                                    <Route exact path="/" component={Dashboard}></Route>
+                                    <Route path="/todo" render={(props) => <TodoPage fixedHeightPaper={fixedHeightPaper} ></TodoPage> } ></Route>
+                                    <Route path="/tic-tac-toe" component={Game} ></Route>
+                                    <Route path="/books" component={Books} ></Route>
+                                </Switch>
+                            
+                            <Box pt={4}>
+                                <Copyright />
+                            </Box>
+                        </Container>
+                    </main>
+                </div>
+            </ThemeProvider>
+        </>
     );
 }
